@@ -15,11 +15,15 @@
   <% end %>
 </div>
 
-<div class="d-flex flex-wrap justify-content-center gap-3">
+<%# -------------- %>
+<div class="d-flex flex-wrap gap-3">
+
   <% @list.bookmarks.each do |bookmark| %>
+
     <div class="movie-card">
       <div class="p-2 d-flex">
           <img src="<%= bookmark.movie.poster_url %>" class="me-2" style="width: 200px;" alt="Poster for <%= bookmark.movie.title %>">
+
             <div class="movie-info">
               <h6 class="mb-1"><%= bookmark.movie.title %></h6>
               <p class="mb-1"><%= bookmark.movie.overview %></p>
@@ -28,9 +32,10 @@
             </div>
           </div>
         </div>
-    </div>
-  <% end %>
-</div>
 
+  <% end %>
+
+</div>
+<%# -------------- %>
 
 <%= link_to "Back to Lists", lists_path, class: "btn btn-secondary mt-4" %>
