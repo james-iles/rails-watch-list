@@ -1,0 +1,30 @@
+.list-card {
+  background-color: $eggshell;
+  color: #000;
+  border: 1px solid white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+
+  .card-title {
+    color: #000000;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  .card-text {
+    color: #000;
+    font-size: 0.9rem;
+  }
+
+  .btn-accent {
+    background-color: #40798C;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    &:hover {
+      background-color: #8ea3aa;
+      color: white;
+    }
+  }
+}

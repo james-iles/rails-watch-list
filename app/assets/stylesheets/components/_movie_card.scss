@@ -1,0 +1,28 @@
+.movie-card {
+  background-color: $eggshell;
+  color: #000;
+  border-radius: 8px;
+  padding: 20px;
+
+  .movie-poster {
+  flex-shrink: 0;
+  width: 150px;
+  height: auto;
+}
+
+.movie-info {
+  flex: 1;
+  min-width: 0;
+}
+
+  .btn-remove {
+    background-color: #9a2b2b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    &:hover {
+      background-color: #b62929;
+      color: white;
+    }
+  }
+}

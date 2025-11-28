@@ -1,17 +1,15 @@
-<div class="banner">
-  <h1 class="mb-4">Your Lists</h1>
-</div>
+<%= render "shared/banner",
+      title: "Your Watch List",
+      background_image: "cinema-dark.jpg" %>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <% @lists.each do |list| %>
 <div class="col">
-  <div class="card h-100 shadow-sm">
-    <div class="card-body d-flex flex-column">
-  <h5 class="card-title"><%= link_to list.name, list_path(list) %></h5>
+  <div class="card list-card">
+  <h5 class="card-title"><%= list.name %></h5>
   <div class="mt-auto d-flex justify-content-between">
-  <%= link_to "View", list_path(list), class: "btn btn-primary" %>
-  <%= link_to "Delete", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger text-white" %>
-  </div>
+  <%= link_to "View", list_path(list), class: "btn btn-accent btn-sm" %>
+  <%= link_to "Delete", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-accent btn-sm text-white" %>
   </div>
   </div>
   </div>

@@ -1,6 +1,8 @@
-<h1 class="mb-4"><%= @list.name %></h1>
+<%= render "shared/banner",
+      title: @list.name,
+      background_image: "cinema-dark.jpg" %>
 
-<div class="card mb-4 shadow-sm p-3">
+<div class="form mb-4 shadow-sm p-3">
   <h4>Add a Movie</h4>
   <%= simple_form_for [@list, @bookmark] do |f| %>
     <div class="mb-3">
@@ -13,24 +15,19 @@
   <% end %>
 </div>
 
-<h2 class="mb-3">Movies in this list</h2>
-
-<div class="d-flex flex-row gap-3">
+<div class="d-flex flex-wrap justify-content-center gap-3">
   <% @list.bookmarks.each do |bookmark| %>
-    <div class="card mb-2 shadow-sm" style="max-width: 540px;">
-      <div class="row g-0 align-items-center">
-        <div class="col-md-4">
-          <img src="<%= bookmark.movie.poster_url %>" class="img-fluid rounded-start" alt="Poster for <%= bookmark.movie.title %>">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body p-2">
-            <h6 class="card-title mb-1"><%= bookmark.movie.title %></h6>
-            <p class="card-text text-truncate mb-1"><%= bookmark.movie.overview %></p>
-            <p class="card-text mb-1"><small class="text-muted">Rating: <%= bookmark.movie.rating %></small></p>
-            <%= link_to "Remove", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+    <div class="movie-card">
+      <div class="p-2 d-flex">
+          <img src="<%= bookmark.movie.poster_url %>" class="me-2" style="width: 200px;" alt="Poster for <%= bookmark.movie.title %>">
+            <div class="movie-info">
+              <h6 class="mb-1"><%= bookmark.movie.title %></h6>
+              <p class="mb-1"><%= bookmark.movie.overview %></p>
+              <p class="mb-1"><small class="text-muted">Rating: <%= bookmark.movie.rating %></small></p>
+              <%= link_to "Remove", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-remove btn-sm text-white" %>
+            </div>
           </div>
         </div>
-      </div>
     </div>
   <% end %>
 </div>
